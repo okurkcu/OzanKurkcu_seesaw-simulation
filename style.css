@@ -5,7 +5,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: system-ui;
+    font-family: system-ui, sans-serif;
     background-color: #F5F7FA;
 }
 
@@ -96,6 +96,26 @@ body{
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     z-index: 10;
+}
+
+.object-preview {
+  position: absolute;
+  top: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  display: none;
+  transition: left 0.05s linear;
+  z-index: 20; /* appear above the plank */
+}
+
+.line-preview {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(0,0,0,0.2);
+  display: none;
+  pointer-events: none;
 }
 
 .seesaw-ground{

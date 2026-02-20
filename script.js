@@ -1,3 +1,5 @@
+import { Selectors } from "./js/selectors.js";
+
 const state = {
   leftWeight: null,
   rightWeight: null,
@@ -16,14 +18,28 @@ const getRandomColor = () => {
   return colors[Math.floor(Math.random() * colors.length)];
 }
 
-const createWeight = (xPosition) => {
-  return {
-    weight: getRandomWeight(),
-    color: getRandomColor(),
-    x: xPosition,
-    y: 0
-  };
+// const createWeight = (xPosition) => {
+//   return {
+//     weight: getRandomWeight(),
+//     color: getRandomColor(),
+//     x: xPosition,
+//     y: 0
+//   };
+// }
+
+// weight = createWeight(200);
+// console.log(weight);
+
+const getMousePosition = () => {
+    Selectors.seesawClickableArea.addEventListener("mousemove", (e) => {
+        let xPos = e.clientX;
+        console.log("The X-Axis position of the mouse is: ", xPos);
+    })
 }
 
-weight = createWeight(200);
-console.log(weight);
+getMousePosition();
+
+var rect = Selectors.pivot.getBoundingClientRect();
+console.log("Exact middle point: ", rect.left + Selectors.pivot.getBoundingClientRect().width / 2);
+
+console.log("Width of the Pivot: ", Selectors.pivot.getBoundingClientRect().width);
